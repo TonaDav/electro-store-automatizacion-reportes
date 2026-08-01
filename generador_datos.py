@@ -38,39 +38,47 @@ clientes = [Cliente(1, "Carlos", "Ramírez Cornejo", "carlos.ramirez@gmail.com")
             Cliente(8, "Andrea", "Flores Valera", "andrea.flores@hotmail.com")]
 
 # Inventario
-inventario = Inventario()
+def generar_datos():
+    inventario = Inventario()
 
-for producto in productos:
-    inventario.agregar_producto(producto)
+    for producto in productos:
+        inventario.agregar_producto(producto)
 
-for vendedor in vendedores:
-    inventario.agregar_vendedor(vendedor)
+    for vendedor in vendedores:
+        inventario.agregar_vendedor(vendedor)
 
-for cliente in clientes:
-    inventario.agregar_cliente(cliente)
+    for cliente in clientes:
+        inventario.agregar_cliente(cliente)
 
-# Producto, cliente, vendedor al azar
-mi_catalogo = inventario.get_productos()
-mis_vendedores = inventario.get_vendedores()
-mis_clientes = inventario.get_clientes()
+    # Producto, cliente, vendedor al azar
+    mi_catalogo = inventario.get_productos()
+    mis_vendedores = inventario.get_vendedores()
+    mis_clientes = inventario.get_clientes()
 
-id_venta = 1
+    id_venta = 1
 
-for item in range(1,51):
-    producto = choice(list(mi_catalogo.values()))
-    cliente = choice(list(mis_clientes.values()))
-    vendedor = choice(list(mis_vendedores.values()))
+    for item in range(1, 51):
+        producto = choice(list(mi_catalogo.values()))
+        cliente = choice(list(mis_clientes.values()))
+        vendedor = choice(list(mis_vendedores.values()))
 
-    # entre 1 y 5 unidades
-    cantidad = randint(1,5)
+        # entre 1 y 5 unidades
+        cantidad = randint(1, 5)
 
-    # genera fecha dentro de un rango (e.g. ultima semana, ultimo mes)
-    hoy = datetime.now().date()
-    dias = randint(1, 7)
-    fecha = hoy - timedelta(days=dias)
+        # genera fecha dentro de un rango (e.g. ultima semana, ultimo mes)
+        hoy = datetime.now().date()
+        dias = randint(1, 7)
+        fecha = hoy - timedelta(days=dias)
 
-    try:
-        inventario.registrar_venta(Venta(id_venta, producto, cliente, vendedor, cantidad, fecha))
-        id_venta += 1
-    except ValueError as error:
-        print(error)
+        try:
+            inventario.registrar_venta(Venta(id_venta, producto, cliente, vendedor, cantidad, fecha))
+            id_venta += 1
+        except ValueError as error:
+            print(error)
+
+    return inventario
+
+# Aquí estamos diciendo que vamos a correr esta función
+# solo cuando ejecutemos este script directamente
+if __name__ == "__main__":
+    mi_inventario = generar_datos()
