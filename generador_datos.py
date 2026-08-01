@@ -25,7 +25,7 @@ productos = [Producto(1, "Arduino Uno R3", "Placas de Desarrollo", 45, 30),
 # Vendedores
 vendedores = [Vendedor(1, "Ana", "Torres Prado", "ana.torres@electrostore.pe"),
               Vendedor(2, "Diego", "Castillo Velarde", "diego.castillo@electrostore.pe"),
-              Vendedor(3, "Valeria", "Quispe Pinedo", "valeria.quispe@electrostore.pe")]
+              Vendedor(3, "Tomas", "Davila Naveda", "tonadavnav05@gmail.com")]
 
 # Clientes
 clientes = [Cliente(1, "Carlos", "Ramírez Cornejo", "carlos.ramirez@gmail.com"),
@@ -57,28 +57,20 @@ mis_clientes = inventario.get_clientes()
 id_venta = 1
 
 for item in range(1,51):
-    print(f"----VENTA N°{item}----")
     producto = choice(list(mi_catalogo.values()))
-    print(producto)
     cliente = choice(list(mis_clientes.values()))
-    print(cliente)
     vendedor = choice(list(mis_vendedores.values()))
-    print(vendedor)
 
     # entre 1 y 5 unidades
     cantidad = randint(1,5)
-    print(cantidad)
 
     # genera fecha dentro de un rango (e.g. ultima semana, ultimo mes)
     hoy = datetime.now().date()
     dias = randint(1, 7)
     fecha = hoy - timedelta(days=dias)
-    print(fecha)
 
     try:
         inventario.registrar_venta(Venta(id_venta, producto, cliente, vendedor, cantidad, fecha))
         id_venta += 1
     except ValueError as error:
         print(error)
-
-print(len(inventario.get_ventas()))

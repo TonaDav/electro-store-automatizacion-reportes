@@ -72,7 +72,7 @@ class Inventario:
         return dict(self.vendedores) # Con dict() devolvemos una copia, mas no una referencia directa al diccionario original.
 
     def get_ventas(self):
-        return self.ventas
+        return list(self.ventas) # Con list() devolvemos una copia, mas no una referencia directa a la lista original.
 
     def agregar_producto(self, producto):
         self.productos[producto.id_producto] = producto
