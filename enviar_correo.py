@@ -11,12 +11,12 @@ def enviar_reporte():
 
     smtp_objeto.starttls()
 
-    email = getpass.getpass("Email: ")
+    email = input("Ingrese su correo (gmail): ")
     contrasena = getpass.getpass("Contrasena:")
     smtp_objeto.login(email, contrasena)
 
     emisor = email
-    receptor = "estebandavnav10@gmail.com"
+    receptor = input("Ingrese el correo del destinatario (gmail): ")
 
     asunto = input("Ingrese el asunto: ")
     cuerpo = input("Ingrese el mensaje: ")

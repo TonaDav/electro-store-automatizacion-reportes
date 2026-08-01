@@ -25,7 +25,7 @@ productos = [Producto(1, "Arduino Uno R3", "Placas de Desarrollo", 45, 30),
 # Vendedores
 vendedores = [Vendedor(1, "Ana", "Torres Prado", "ana.torres@electrostore.pe"),
               Vendedor(2, "Diego", "Castillo Velarde", "diego.castillo@electrostore.pe"),
-              Vendedor(3, "Tomas", "Davila Naveda", "tonadavnav05@gmail.com")]
+              Vendedor(3, "Tomas", "Davila Naveda", "tomas.davila@electrostore.pe")]
 
 # Clientes
 clientes = [Cliente(1, "Carlos", "Ramírez Cornejo", "carlos.ramirez@gmail.com"),
